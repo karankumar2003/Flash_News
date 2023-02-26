@@ -11,7 +11,6 @@ import com.google.android.material.tabs.TabLayout
 
 class NewsFragment : Fragment(R.layout.fragment) {
     lateinit var recyclerView: RecyclerView
-    lateinit var tabLayout: TabLayout
     lateinit var adapter: NewsAdapter
     lateinit var fragment: NewsFragment
 
