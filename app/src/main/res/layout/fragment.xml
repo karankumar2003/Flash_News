@@ -6,9 +6,11 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        tools:listitem="@android:layout/activity_list_item"
+        android:id="@+id/recyclerView"
+        tools:listitem="@layout/news_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
