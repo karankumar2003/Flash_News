@@ -6,16 +6,16 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class fragment1 : Fragment(R.layout.fragment1) {
+class fragment2 : Fragment(R.layout.fragment1) {
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: NewsRVAdapter
-    lateinit var fragment: fragment1
+    lateinit var fragment: fragment2
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val list = (1..100).toList()
+        val list = (100..200).toList()
 
 
         recyclerView = view.findViewById(R.id.recyclerView)
