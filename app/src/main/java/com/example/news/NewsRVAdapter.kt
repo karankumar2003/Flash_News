@@ -1,5 +1,6 @@
 package com.example.news
 
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class NewsRVAdapter(private val arrayList:ArrayList<News>) : RecyclerView.Adapter<NewsRVAdapter.MyViewHolder>() {
 
@@ -24,6 +26,9 @@ class NewsRVAdapter(private val arrayList:ArrayList<News>) : RecyclerView.Adapte
         holder.description.text = arrayList[position].desc
         holder.time.text = arrayList[position].time
         holder.source.text = arrayList[position].source
+
+        Glide.with(holder.itemView.context).load(Uri.parse(arrayList[position].imageUrl)).into(holder.image)
+
 
     }
 
