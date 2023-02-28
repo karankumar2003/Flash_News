@@ -9,7 +9,7 @@ import java.security.AccessController.getContext
 
 class Networking {
     companion object {
-        val baseUrl =
+        private const val baseUrl =
             "https://newsdata.io/api/1/news?apikey=pub_1722619c153aa6e11254c32f6e530ea14798d&language=en&country=in&category="
 
         fun fetchData(category: String, context: Context): ArrayList<News> {

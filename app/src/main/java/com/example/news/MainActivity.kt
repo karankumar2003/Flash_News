@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setTheme(R.style.Theme_News)
 
         setContentView(R.layout.activity_main)
         tabLayout = findViewById(R.id.tabLayout)

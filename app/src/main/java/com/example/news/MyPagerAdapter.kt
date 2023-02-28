@@ -9,7 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class MyPagerAdapter(fragmentManager: FragmentManager,lifecycle:Lifecycle,val list:List<Fragment>) : FragmentStateAdapter(fragmentManager,lifecycle) {
+class MyPagerAdapter(fragmentManager: FragmentManager, lifecycle:Lifecycle, private val list:List<Fragment>) : FragmentStateAdapter(fragmentManager,lifecycle) {
     override fun getItemCount(): Int {
         return list.size
     }
