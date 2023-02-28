@@ -22,6 +22,10 @@ class TechnologyNewsFragment : Fragment(R.layout.news_fragment) {
         adapter = NewsRVAdapter(Networking.fetchData("technology", requireContext()))
         recyclerView.adapter = adapter
     }
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged() // update the adapter when the fragment is resumed
+    }
 
 }
 

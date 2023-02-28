@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 class PoliticsNewsFragment : Fragment(R.layout.news_fragment) {
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: NewsRVAdapter
-    lateinit var fragment: PoliticsNewsFragment
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -22,6 +21,10 @@ class PoliticsNewsFragment : Fragment(R.layout.news_fragment) {
 
         adapter = NewsRVAdapter(Networking.fetchData("politics", requireContext()))
         recyclerView.adapter = adapter
+    }
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged() // update the adapter when the fragment is resumed
     }
 
 }

@@ -9,12 +9,11 @@ import java.security.AccessController.getContext
 
 class Networking {
     companion object {
-        var newsList = ArrayList<News>()
-
         val baseUrl =
             "https://newsdata.io/api/1/news?apikey=pub_1722619c153aa6e11254c32f6e530ea14798d&language=en&country=in&category="
 
         fun fetchData(category: String, context: Context): ArrayList<News> {
+            val newsList = ArrayList<News>()
             Log.d("Networking", "start")
             val url = baseUrl + category
             val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
@@ -34,11 +33,7 @@ class Networking {
                         )
                         newsList.add(news)
                     }
-                    Log.d("Networking", "added")
-
-
-                }, {Log.e("Networking", "error - message: ${it.message}")
-
+                }, {
                     val statusCode = it.networkResponse?.statusCode
                     Log.e("MainActivity", "Error - status code: $statusCode")
                 })

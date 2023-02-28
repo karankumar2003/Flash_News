@@ -15,7 +15,12 @@ class MyPagerAdapter(fragmentManager: FragmentManager,lifecycle:Lifecycle,val li
     }
 
     override fun createFragment(position: Int): Fragment {
-       return list[position]
+       return (when(position){
+           0 -> TopNewsFragment()
+           1-> PoliticsNewsFragment()
+           2 -> TechnologyNewsFragment()
+           else -> TopNewsFragment()
+       })
     }
 
 }
