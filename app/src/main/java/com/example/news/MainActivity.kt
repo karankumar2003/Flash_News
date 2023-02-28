@@ -9,8 +9,12 @@ import com.google.android.material.tabs.TabLayoutMediator
 class MainActivity : AppCompatActivity() {
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager2
-    val tabList = listOf("Top", "Politics", "Technology")
-    val fragmentList = listOf(TopNewsFragment(),PoliticsNewsFragment(),TechnologyNewsFragment())
+    private val tabList = listOf("Top", "Politics", "Technology")
+
+    private val topNewsFragment = NewsFragment.newInstance("top")
+    private val politicsNewsFragment = NewsFragment.newInstance("politics")
+    private val technologyNewsFragment = NewsFragment.newInstance("technology")
+    private val fragmentList = listOf(topNewsFragment,politicsNewsFragment,technologyNewsFragment)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
