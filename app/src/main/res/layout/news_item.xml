@@ -19,7 +19,16 @@
         android:paddingEnd="16dp"
         android:paddingBottom="16dp">
 
-
+        <ImageView
+            android:id="@+id/newsImage"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            tools:src="@drawable/splash"/>
         <TextView
             android:id="@+id/title"
             android:layout_width="0dp"
@@ -30,7 +39,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newsImage"
             tools:text="This is the heading" />
 
         <LinearLayout
@@ -61,16 +70,7 @@
                 app:layout_constraintTop_toBottomOf="parent"
                 tools:text="this is the description of the news . it contains the some lines about the article we can read without opening the article." />
 
-            <ImageView
-                android:id="@+id/newsImage"
-                android:layout_width="0dp"
-                android:layout_height="118dp"
-                android:layout_weight="1"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@+id/time"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="parent"
-                tools:src="@drawable/ic_launcher_background" />
+
         </LinearLayout>
 
         <TextView

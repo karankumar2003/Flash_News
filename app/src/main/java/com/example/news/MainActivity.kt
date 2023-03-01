@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity(){
     private val technologyNewsFragment = NewsFragment.newInstance("technology")
     private val fragmentList = listOf(topNewsFragment,politicsNewsFragment,technologyNewsFragment)
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)

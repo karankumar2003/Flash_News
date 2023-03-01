@@ -16,5 +16,11 @@
 
     </style>
 
+    <style name="Theme.SplashScreenTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#FFFFFF</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_icon</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.News</item>
+    </style>
 
 </resources>
