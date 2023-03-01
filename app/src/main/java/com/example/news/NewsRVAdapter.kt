@@ -31,6 +31,12 @@ class NewsRVAdapter(private val arrayList:ArrayList<News>) : RecyclerView.Adapte
 
 
     }
+    fun updateList(list : ArrayList<News>){
+        arrayList.clear()
+        arrayList.addAll(list)
+        notifyDataSetChanged()
+    }
+
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var title = itemView.findViewById<TextView>(R.id.title)
