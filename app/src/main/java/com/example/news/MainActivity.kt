@@ -4,12 +4,14 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.browser.customtabs.CustomTabsCallback
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager2
     private val tabList = listOf("Top", "Politics", "Technology")
@@ -36,4 +38,6 @@ class MainActivity : AppCompatActivity() {
         }.attach()
 
     }
+
+
 }

@@ -13,6 +13,7 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabRippleColor="#E57373"
         />
 
     <androidx.viewpager2.widget.ViewPager2

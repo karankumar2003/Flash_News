@@ -1,25 +1,30 @@
 package com.example.news
 
 import android.content.Context
+import android.graphics.Color
 import android.net.ConnectivityManager
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
-import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.core.content.ContextCompat.getSystemService
+import androidx.browser.customtabs.CustomTabColorSchemeParams
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.browser.customtabs.CustomTabsIntent.COLOR_SCHEME_LIGHT
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.razzaghimahdi78.dotsloading.linear.LoadingBiggy
 
-class NewsFragment : Fragment(R.layout.news_fragment) {
+
+class NewsFragment : Fragment(R.layout.news_fragment) , RecyclerViewItemListener {
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: NewsRVAdapter
     lateinit var category: String
     lateinit var loadingIcon: LoadingBiggy
     lateinit var reloadButton: Button
     lateinit var internetStatusTextView : TextView
+    var newsList = ArrayList<News>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +44,7 @@ class NewsFragment : Fragment(R.layout.news_fragment) {
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         internetStatusTextView = view.findViewById(R.id.internetStatusTextView)
 
-        adapter = NewsRVAdapter(ArrayList<News>())
+        adapter = NewsRVAdapter(newsList,this)
         recyclerView.adapter = adapter
 
         checkInternetConnection()
@@ -99,4 +104,13 @@ class NewsFragment : Fragment(R.layout.news_fragment) {
 
 
 
-}}
+}
+    override fun onItemClick(position: Int) {
+        val builder = CustomTabsIntent.Builder()
+        builder.setColorScheme(COLOR_SCHEME_LIGHT)
+        val customTabsIntent = builder.build()
+        customTabsIntent.intent.setPackage("com.android.chrome")
+        customTabsIntent.launchUrl(requireContext(), Uri.parse(newsList[position].url))
+    }
+
+}

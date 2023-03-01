@@ -7,14 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class NewsRVAdapter(private val arrayList:ArrayList<News>) : RecyclerView.Adapter<NewsRVAdapter.MyViewHolder>() {
+class NewsRVAdapter(private val arrayList:ArrayList<News>,val listener: RecyclerViewItemListener) : RecyclerView.Adapter<NewsRVAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.news_item,parent,false)
-        return MyViewHolder(view)
+        val viewHolder = MyViewHolder(view)
+        view.setOnClickListener{
+            listener.onItemClick(viewHolder.adapterPosition)
+        }
+        return viewHolder
     }
 
     override fun getItemCount(): Int {
