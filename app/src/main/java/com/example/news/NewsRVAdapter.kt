@@ -27,8 +27,23 @@ class NewsRVAdapter(private val arrayList:ArrayList<News>) : RecyclerView.Adapte
         holder.time.text = arrayList[position].time
         holder.source.text = arrayList[position].source
 
-        Glide.with(holder.itemView.context).load(Uri.parse(arrayList[position].imageUrl)).into(holder.image)
+        val imageUrl = arrayList[position].imageUrl
 
+        if (imageUrl != "null") {
+            if (imageUrl.contains("youtube.com")) {
+                // Get the video ID from the URL
+                val videoId = imageUrl.substring(imageUrl.lastIndexOf("/") + 1)
+                // Construct the thumbnail URL
+                val thumbnailUrl = "https://img.youtube.com/vi/$videoId/0.jpg"
+                Glide.with(holder.itemView.context).load(thumbnailUrl).into(holder.image)
+            } else {
+
+                Glide.with(holder.itemView.context).load(imageUrl).into(holder.image)
+            }
+        } else {
+            holder.image.visibility = View.GONE
+
+        }
 
     }
     fun updateList(list : ArrayList<News>){

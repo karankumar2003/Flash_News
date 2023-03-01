@@ -5,17 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ProgressBar
-        android:id = "@+id/progressbar"
+
+    <com.razzaghimahdi78.dotsloading.linear.LoadingBiggy
+        android:id="@+id/loadingIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:dots_color="@color/white"
+        app:dots_count="3"
+        app:dots_duration="500"
+        app:dots_size="medium"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
-        />
+        android:visibility="gone"/>
 
+<Button
+    android:padding="8dp"
+    android:id="@+id/reloadButton"
+    android:background = "@drawable/button"
+    android:text ="Try Again"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:visibility="gone"
+    android:textColor = "#FFFFFF"
+    android:textAllCaps = "false"
+    android:textSize="24sp"
+    />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

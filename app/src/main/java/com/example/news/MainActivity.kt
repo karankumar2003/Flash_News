@@ -21,10 +21,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         setContentView(R.layout.activity_main)
         tabLayout = findViewById(R.id.tabLayout)
         tabLayout.setBackgroundColor(ContextCompat.getColor(applicationContext,R.color.red))
+        tabLayout.setSelectedTabIndicatorColor(Color.WHITE)
+
         viewPager = findViewById(R.id.viewPager)
 
         viewPager.adapter = MyPagerAdapter(supportFragmentManager,lifecycle,fragmentList)
