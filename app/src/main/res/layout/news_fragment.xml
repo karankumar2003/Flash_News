@@ -20,7 +20,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"/>
 
-<Button
+    <TextView
+        android:id="@+id/internetStatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/reloadButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
     android:padding="8dp"
     android:id="@+id/reloadButton"
     android:background = "@drawable/button"
