@@ -12,6 +12,7 @@ import androidx.browser.customtabs.CustomTabsIntent.COLOR_SCHEME_LIGHT
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.razzaghimahdi78.dotsloading.linear.LoadingBiggy
 
 
@@ -22,6 +23,7 @@ class NewsFragment : Fragment(R.layout.news_fragment) , RecyclerViewItemListener
     lateinit var loadingIcon: LoadingBiggy
     lateinit var reloadButton: Button
     lateinit var internetStatusTextView : TextView
+    lateinit var swipeRefreshLayout: SwipeRefreshLayout
     var newsList = ArrayList<News>()
 
 
@@ -41,6 +43,8 @@ class NewsFragment : Fragment(R.layout.news_fragment) , RecyclerViewItemListener
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         internetStatusTextView = view.findViewById(R.id.internetStatusTextView)
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefresh)
+
 
         adapter = NewsRVAdapter(newsList,this)
         recyclerView.adapter = adapter
@@ -54,6 +58,13 @@ class NewsFragment : Fragment(R.layout.news_fragment) , RecyclerViewItemListener
             getData()
             checkInternetConnection()
         }
+
+        swipeRefreshLayout.setOnRefreshListener {
+            checkInternetConnection()
+            getData()
+            checkInternetConnection()
+            
+        }
     }
 
 
@@ -65,12 +76,13 @@ class NewsFragment : Fragment(R.layout.news_fragment) , RecyclerViewItemListener
             override fun onNewsFetched(newsList: ArrayList<News>) {
                 adapter.updateList(newsList)
                 loadingIcon.visibility = View.GONE
+                swipeRefreshLayout.isRefreshing = false
             }
 
             override fun onError() {
                 loadingIcon.visibility = View.GONE
                 reloadButton.visibility = View.VISIBLE
-
+                swipeRefreshLayout.isRefreshing = false
 
             }
 
@@ -110,5 +122,6 @@ class NewsFragment : Fragment(R.layout.news_fragment) , RecyclerViewItemListener
         customTabsIntent.intent.setPackage("com.android.chrome")
         customTabsIntent.launchUrl(requireContext(), Uri.parse(newsList[position].url))
     }
+
 
 }
