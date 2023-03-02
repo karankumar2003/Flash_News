@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -69,6 +70,7 @@ class NewsFragment : Fragment(R.layout.news_fragment) , RecyclerViewItemListener
 
 
     private fun getData(){
+
         internetStatusTextView.visibility = View.GONE
         loadingIcon.visibility = View.VISIBLE
         reloadButton.visibility = View.GONE
@@ -77,6 +79,7 @@ class NewsFragment : Fragment(R.layout.news_fragment) , RecyclerViewItemListener
                 adapter.updateList(newsList)
                 loadingIcon.visibility = View.GONE
                 swipeRefreshLayout.isRefreshing = false
+
             }
 
             override fun onError() {
@@ -110,6 +113,8 @@ class NewsFragment : Fragment(R.layout.news_fragment) , RecyclerViewItemListener
             internetStatusTextView.text = "No Internet Connection!"
             reloadButton.visibility = View.VISIBLE
 
+        }else{
+            recyclerView.visibility=View.VISIBLE
         }
 
 

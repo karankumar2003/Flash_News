@@ -1,5 +1,6 @@
 package com.example.news
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,6 +63,7 @@ class NewsRVAdapter(private val arrayList:ArrayList<News>,val listener: Recycler
         arrayList.clear()
         arrayList.addAll(list)
         notifyDataSetChanged()
+
     }
 
 
