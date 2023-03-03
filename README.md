@@ -10,6 +10,7 @@ Each category is displayed in a separate fragment, and the news within each cate
 * Click on an article to view it in full-screen using Chrome Custom Tabs  
 * Uses Volley library to fetch data from NewsData API   
 * Implements RecyclerView to display news articles  
+* Refresh news using SwipeRefreshLayout
 * Uses glide a fast and efficient image loading library that makes it easy to load and display images from URLs  
 
 # Technologies Used
